@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand tokens — light mode */
+    --brand-primary: #1E40AF;
+    --brand-primary-hover: #1D3A9E;
+    --brand-primary-light: #EFF6FF;
+    --brand-primary-mid: #3B82F6;
+    --brand-accent: #F97316;
+    --brand-accent-hover: #EA6C0A;
+    --brand-accent-dark: #C2510A;   /* WCAG AA on off-white */
+    --brand-green: #10B981;
+    --brand-green-bg: #ECFDF5;
+
+    /* Surfaces */
+    --bg-base: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F1F5F9;
+    --bg-subtle: #F1F5F9;
+    --border-default: #E2E8F0;
+    --border-subtle: #F1F5F9;
+
+    /* Text */
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+
+    /* Aurora gradient */
+    --gradient-aurora: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #FED7AA 100%);
+    --gradient-aurora-subtle: linear-gradient(135deg, rgba(30,64,175,0.08) 0%, rgba(59,130,246,0.05) 50%, rgba(249,115,22,0.05) 100%);
+
+    /* shadcn tokens */
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 30 64 175;
+    --primary-foreground: 255 255 255;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --accent: 249 115 22;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 30 64 175;
+    --radius: 0.75rem;
+    --sidebar-background: 248 250 252;
+    --sidebar-foreground: 15 23 42;
+    --sidebar-primary: 30 64 175;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 241 245 249;
+    --sidebar-accent-foreground: 15 23 42;
+    --sidebar-border: 226 232 240;
+    --sidebar-ring: 30 64 175;
+  }
+
+  .dark {
+    /* Brand tokens — dark mode */
+    --brand-primary: #60A5FA;
+    --brand-primary-hover: #93C5FD;
+    --brand-primary-light: rgba(96,165,250,0.12);
+    --brand-primary-mid: #3B82F6;
+    --brand-accent: #FB923C;
+    --brand-accent-hover: #FDBA74;
+    --brand-accent-dark: #FB923C;
+    --brand-green: #34D399;
+    --brand-green-bg: rgba(52,211,153,0.1);
+
+    /* Surfaces — deep navy, not pure black */
+    --bg-base: #0D1829;
+    --bg-card: #121F35;
+    --bg-card-hover: #1A2D47;
+    --bg-subtle: #162238;
+    --border-default: rgba(96,165,250,0.15);
+    --border-subtle: rgba(96,165,250,0.08);
+
+    /* Text */
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+
+    --gradient-aurora: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 50%, #92400E 100%);
+    --gradient-aurora-subtle: linear-gradient(135deg, rgba(30,58,138,0.3) 0%, rgba(29,78,216,0.2) 50%, rgba(146,64,14,0.15) 100%);
+
+    /* shadcn tokens */
+    --background: 13 24 41;
+    --foreground: 241 245 249;
+    --card: 18 31 53;
+    --card-foreground: 241 245 249;
+    --popover: 18 31 53;
+    --popover-foreground: 241 245 249;
+    --primary: 96 165 250;
+    --primary-foreground: 15 23 42;
+    --secondary: 22 34 56;
+    --secondary-foreground: 241 245 249;
+    --muted: 22 34 56;
+    --muted-foreground: 100 116 139;
+    --accent: 251 146 60;
+    --accent-foreground: 15 23 42;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 26 45 71;
+    --input: 26 45 71;
+    --ring: 96 165 250;
+    --sidebar-background: 13 24 41;
+    --sidebar-foreground: 241 245 249;
+    --sidebar-primary: 96 165 250;
+    --sidebar-primary-foreground: 15 23 42;
+    --sidebar-accent: 22 34 56;
+    --sidebar-accent-foreground: 241 245 249;
+    --sidebar-border: 26 45 71;
+    --sidebar-ring: 96 165 250;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--brand-primary); border-radius: 3px; }

@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "nome": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "empresa": {
+      "type": "string"
+    },
+    "assunto": {
+      "type": "string"
+    },
+    "mensagem": {
+      "type": "string"
+    },
+    "origem": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "nome",
+    "email",
+    "mensagem"
+  ],
+  "name": "Lead"
+}
