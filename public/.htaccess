@@ -1,7 +1,14 @@
-# Rotas do React Router: redireciona tudo que não é arquivo para o index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Força HTTPS (evita o aviso "Não seguro" quando o acesso chega por http).
+  # Cobre tanto SSL direto no Apache quanto SSL terminado num proxy à frente.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Rotas do React Router: tudo que não for arquivo/pasta cai no index.html
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
