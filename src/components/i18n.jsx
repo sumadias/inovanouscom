@@ -17,6 +17,15 @@ export const translations = {
       link: "Saiba mais sobre nós →",
       cardTitles: ["IA Aplicada", "Gamificação", "Sustentabilidade", "Inclusão Digital"],
       cards: ["Soluções inteligentes com impacto real", "Aprendizado e engajamento através de jogos", "ESG no centro de cada projeto", "Tecnologia acessível para todos"],
+      teamTitle: "Fundadores",
+      teamRoles: ["Cofundadora · Projetos & IA", "Cofundador · Jurídico & Direito Digital"],
+      teamBios: [
+        "Gerente de projetos de TIC com formação em IA e MBA em Big Data. Lidera as soluções de tecnologia com impacto social da NOUS.",
+        "Advogado com atuação em direito digital e LGPD. Garante a conformidade e a segurança jurídica das soluções da NOUS.",
+      ],
+      certTitle: "Demoday GovTech Goiás",
+      certText: "Projeto selecionado entre as 19 melhores propostas, de 72, no programa GovTech do Governo de Goiás.",
+      certLink: "Ver reconhecimento no LinkedIn →",
     },
     oQueFazemos: {
       label: "Nossas Soluções", title: "O Que Fazemos",
@@ -115,6 +124,15 @@ export const translations = {
       link: "Learn more about us →",
       cardTitles: ["Applied AI", "Gamification", "Sustainability", "Digital Inclusion"],
       cards: ["Smart solutions with real impact", "Learning and engagement through games", "ESG at the core of every project", "Accessible technology for everyone"],
+      teamTitle: "Founders",
+      teamRoles: ["Co-founder · Projects & AI", "Co-founder · Legal & Digital Law"],
+      teamBios: [
+        "ICT project manager with a background in AI and an MBA in Big Data. Leads NOUS's social-impact technology solutions.",
+        "Lawyer specializing in digital law and data protection (LGPD). Ensures legal compliance and security across NOUS's solutions.",
+      ],
+      certTitle: "GovTech Goiás Demoday",
+      certText: "Project selected among the top 19 proposals, out of 72, in the Goiás State Government's GovTech program.",
+      certLink: "See the recognition on LinkedIn →",
     },
     oQueFazemos: {
       label: "Our Solutions", title: "What We Do",
@@ -213,6 +231,15 @@ export const translations = {
       link: "Conoce más sobre nosotros →",
       cardTitles: ["IA Aplicada", "Gamificación", "Sostenibilidad", "Inclusión Digital"],
       cards: ["Soluciones inteligentes con impacto real", "Aprendizaje y compromiso a través de juegos", "ESG en el centro de cada proyecto", "Tecnología accesible para todos"],
+      teamTitle: "Fundadores",
+      teamRoles: ["Cofundadora · Proyectos e IA", "Cofundador · Jurídico y Derecho Digital"],
+      teamBios: [
+        "Gerente de proyectos TIC con formación en IA y MBA en Big Data. Lidera las soluciones tecnológicas de impacto social de NOUS.",
+        "Abogado especializado en derecho digital y protección de datos (LGPD). Garantiza la conformidad y la seguridad jurídica de las soluciones de NOUS.",
+      ],
+      certTitle: "Demoday GovTech Goiás",
+      certText: "Proyecto seleccionado entre las 19 mejores propuestas, de 72, en el programa GovTech del Gobierno de Goiás.",
+      certLink: "Ver el reconocimiento en LinkedIn →",
     },
     oQueFazemos: {
       label: "Nuestras Soluciones", title: "Qué Hacemos",
