@@ -25,7 +25,9 @@ export const translations = {
       ],
       certTitle: "Demoday GovTech Goiás",
       certText: "Projeto selecionado entre as 19 melhores propostas, de 72, no programa GovTech do Governo de Goiás.",
-      certLink: "Ver reconhecimento no LinkedIn →",
+      certLink: "Ver certificado →",
+      certAlt: "Certificado do Programa GovTech Goiás emitido pelo Governo de Goiás à NOUS Inovação e Tecnologia",
+      certClose: "Fechar",
     },
     oQueFazemos: {
       label: "Nossas Soluções", title: "O Que Fazemos",
@@ -132,7 +134,9 @@ export const translations = {
       ],
       certTitle: "GovTech Goiás Demoday",
       certText: "Project selected among the top 19 proposals, out of 72, in the Goiás State Government's GovTech program.",
-      certLink: "See the recognition on LinkedIn →",
+      certLink: "View certificate →",
+      certAlt: "GovTech Goiás Program certificate issued by the Government of Goiás to NOUS Inovação e Tecnologia",
+      certClose: "Close",
     },
     oQueFazemos: {
       label: "Our Solutions", title: "What We Do",
@@ -239,7 +243,9 @@ export const translations = {
       ],
       certTitle: "Demoday GovTech Goiás",
       certText: "Proyecto seleccionado entre las 19 mejores propuestas, de 72, en el programa GovTech del Gobierno de Goiás.",
-      certLink: "Ver el reconocimiento en LinkedIn →",
+      certLink: "Ver certificado →",
+      certAlt: "Certificado del Programa GovTech Goiás emitido por el Gobierno de Goiás a NOUS Inovação e Tecnologia",
+      certClose: "Cerrar",
     },
     oQueFazemos: {
       label: "Nuestras Soluciones", title: "Qué Hacemos",

@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Brain, Gamepad2, Leaf, Users, MapPin, Linkedin, Award } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Brain, Gamepad2, Leaf, Users, MapPin, Linkedin, Award, X } from "lucide-react";
 import { useLang } from "@/components/LangContext";
 import { useTheme } from "@/components/ThemeContext";
 import { t } from "@/components/i18n";
@@ -8,7 +8,7 @@ import { t } from "@/components/i18n";
 const cardIcons = [Brain, Gamepad2, Leaf, Users];
 const cardColors = ["text-[#1E40AF]", "text-[#F97316]", "text-[#10B981]", "text-[#1E40AF]"];
 
-const CERT_URL = "https://www.linkedin.com/feed/update/urn:li:activity:7480695466154774528/";
+const CERT_IMG = "/certificados/govtech-goias-nous.jpg";
 
 function AvatarSuzana({ className }) {
   return (
@@ -93,6 +93,19 @@ export default function QuemSomos() {
   const { theme } = useTheme();
   const tr = t(lang).quemSomos;
   const dark = theme === "dark";
+  const [certOpen, setCertOpen] = useState(false);
+
+  useEffect(() => {
+    if (!certOpen) return;
+    const onKey = (e) => { if (e.key === "Escape") setCertOpen(false); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [certOpen]);
 
   return (
     <section className={`py-24 px-6 relative overflow-hidden transition-colors duration-300 ${
@@ -186,11 +199,10 @@ export default function QuemSomos() {
             </div>
 
             {/* Certificate badge */}
-            <a
-              href={CERT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`mt-3 flex items-start gap-3 p-4 border rounded-2xl transition-all hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E40AF] ${
+            <button
+              type="button"
+              onClick={() => setCertOpen(true)}
+              className={`mt-3 w-full text-left flex items-start gap-3 p-4 border rounded-2xl transition-all hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E40AF] ${
                 dark
                   ? "border-orange-500/30 bg-orange-500/5 hover:border-orange-400/50"
                   : "border-orange-200 bg-orange-50/60 hover:border-orange-300 hover:bg-orange-50"
@@ -204,10 +216,52 @@ export default function QuemSomos() {
                 <p className={`text-xs leading-relaxed mt-0.5 ${dark ? "text-slate-400" : "text-slate-500"}`}>{tr.certText}</p>
                 <span className={`text-xs font-semibold mt-1.5 inline-block ${dark ? "text-orange-400" : "text-[#F97316]"}`}>{tr.certLink}</span>
               </div>
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>
+
+      {/* Certificate modal */}
+      <AnimatePresence>
+        {certOpen && (
+          <motion.div
+            key="cert-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setCertOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={tr.certTitle}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-3xl"
+            >
+              <button
+                type="button"
+                onClick={() => setCertOpen(false)}
+                aria-label={tr.certClose}
+                autoFocus
+                className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-white text-[#0F172A] shadow-lg hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F97316]"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <img
+                src={CERT_IMG}
+                alt={tr.certAlt}
+                className="w-full h-auto rounded-2xl shadow-2xl bg-white"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
